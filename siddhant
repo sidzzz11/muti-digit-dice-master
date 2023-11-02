@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+// Function to roll a six-sided die and return the result
+int rollDie() {
+    return (rand() % 6) + 1;
+}
+
+int main() {
+    int numDice, i;
+    char choice;
+
+    srand(time(NULL)); // Seed the random number generator
+
+    do {
+        // Ask the user how many dice to roll
+        printf("How many dice do you want to roll? ");
+        scanf("%d", &numDice);
+
+        // Roll the specified number of dice and display the results
+        printf("You rolled: ");
+        for (i = 0; i < numDice; i++) {
+            int result = rollDie();
+            printf("%d ", result);
+        }
+        printf("\n");
+
+        // Ask the user if they want to roll again
+        printf("Roll again? (y/n): ");
+        scanf(" %c", &choice);
+    } while (choice == 'y' || choice == 'Y');
+
+    printf("Thanks for playing!\n");
+
+    return 0;
+}
